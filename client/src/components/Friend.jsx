@@ -10,7 +10,7 @@ import { setFriends } from "state";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
 
-const Friend = ({ friendId, name, Subtitle, usePicturePath }) => {
+const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
@@ -78,3 +78,5 @@ const Friend = ({ friendId, name, Subtitle, usePicturePath }) => {
     </FlexBetween>
   );
 };
+
+export default Friend;
