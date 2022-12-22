@@ -66,7 +66,6 @@ const Form = () => {
     const savedUserResponse = await fetch(
       "https://carbuildz.onrender.com/auth/register",
       {
-        mode: "no-cors",
         method: "POST",
         body: formData,
       }
@@ -83,15 +82,11 @@ const Form = () => {
     const loggedInResponse = await fetch(
       "https://carbuildz.onrender.com/auth/login",
       {
-        mode: "no-cors",
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "*",
-          "Access-Control-Allow-Headers": "*",
+          "Content-Type": "text/plain",
         },
-        body: JSON.stringify(values),
+        body: values,
       }
     );
     const loggedIn = await loggedInResponse.json();
