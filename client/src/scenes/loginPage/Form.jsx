@@ -83,7 +83,12 @@ const Form = () => {
     const loggedInResponse = await fetch("http://localhost:8080/auth/login", {
       mode: "no-cors",
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Allow-Headers": "*",
+      },
       body: JSON.stringify(values),
     });
     const loggedIn = await loggedInResponse.json();
