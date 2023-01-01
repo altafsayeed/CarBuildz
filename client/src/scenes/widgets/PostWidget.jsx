@@ -9,7 +9,7 @@ import Friend from "components/Friend";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPost } from "state";
+import { setPost, setPosts } from "state";
 
 const PostWidget = ({
   postId,
@@ -45,6 +45,31 @@ const PostWidget = ({
     const updatedPost = await response.json();
     dispatch(setPost({ post: updatedPost }));
   };
+
+  // const deletePost = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:8081/posts/${postId}/delete`,
+  //       {
+  //         method: "PATCH",
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ userId: loggedInUserId }),
+  //       }
+  //     );
+  //     if (response.data.success) {
+  //       getFeedPosts();
+  //     } else {
+  //       message.error(response.data.message);
+  //     }
+  //   } catch (error) {
+  //     dispatch(HideLoading());
+  //     message.error(error.message);
+  //   }
+  //   dispatch(setPosts);
+  // };
 
   return (
     <WidgetWrapper m="2rem 0">
